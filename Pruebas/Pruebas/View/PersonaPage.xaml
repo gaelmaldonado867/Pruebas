@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pruebas.View.PersonaPage"
+             Title="Potencial de Negocio">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="{Binding Id}"></Label>
+            <Label Text="CardCode"></Label>
+            <Entry Text="{Binding CardCode}"></Entry>
+            <Label Text="Nombre"></Label>
+            <Entry Text="{Binding Nombre}"></Entry>
+            <Label Text="Nombre de la clinica"></Label>
+            <Entry Text="{Binding Nombreclinica}"></Entry>
+            <Label Text="Medicos totales"></Label>
+            <Entry Text="{Binding Medicototales}" Keyboard="Numeric"></Entry>
+            <Label Text="Pacientes promedio al día"></Label>
+            <Entry Text="{Binding Pacientespromedio}" Keyboard="Numeric"></Entry>
+            <Label Text="Costo de la consulta"></Label>
+            <Entry Text="{Binding Costoconsulta}" Keyboard="Numeric"></Entry>
+            <Label Text="Consultas mensuales"></Label>
+            <Entry Text="{Binding Consultasalmes}" Keyboard="Numeric"></Entry>
+            <Label Text="Piezas por Paciente"></Label>
+            <Entry Text="{Binding Piezasxpaciente}" Keyboard="Numeric"></Entry>
+            <Label Text="Utilidad por pieza"></Label>
+            <Entry Text="{Binding Utilidadxpieza}" Keyboard="Numeric"></Entry>
+            <Label Text="Utilidad potencial al mes"></Label>
+            <Label Text="{Binding Utilidadpotencial}" FontSize="Title" TextColor="Green"></Label>
+            <Button Text="Guardar" Command="{Binding GuardarCommand}"></Button>
+            <Button Text="Modificar" Command="{Binding ModificarCommand}"></Button>
+            <Button Text="Eliminar" Command="{Binding EliminarCommand}"></Button>
+            <Button Text="Limpiar" Command="{Binding LimpiarCommand}"></Button>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
+            <ListView x:Name="LvPersonas" ItemsSource="{Binding Personas}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding CardCode}" Detail="{Binding Utilidadpotencial}" DetailColor="Green">
+                            
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
